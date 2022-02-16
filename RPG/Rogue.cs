@@ -9,25 +9,43 @@ namespace RPG
     class Rogue : Hero
     {
         // initial Base Primary Attributes
-        int initialStrength = 2;
-        int initialDexterity = 6;
-        int initialIntelligence = 1;
+        private int initialStrength = 2;
+        private int initialDexterity = 6;
+        private int initialIntelligence = 1;
 
         // Additional Base Primary Attributes points with each level up
-        int levelStrength = 1;
-        int levelDexterity = 4;
-        int levelIntelligence = 1;
+        private int levelStrength = 1;
+        private int levelDexterity = 4;
+        private int levelIntelligence = 1;
 
+        private List<WeaponTypes> allowedWeaponTypes = new List<WeaponTypes> { WeaponTypes.Dagger, WeaponTypes.Sword };
+        private List<ArmorTypes> allowedArmorTypes = new List<ArmorTypes> { ArmorTypes.Leather, ArmorTypes.Mail };
 
-        public BasePrimaryAttributes BasePrimaryAttributes { get; set; }
-        
-
-        public Rogue()
+        public Rogue(string name, int level) : base(name, level)
         {
-            BasePrimaryAttributes = new BasePrimaryAttributes();
+            BasePrimaryAttributes = new BasePrimaryAttributes(initialStrength,initialDexterity, initialIntelligence,
+                                                              levelStrength, levelDexterity, levelIntelligence, level );
+            Equipment = new Equipment();
         }
 
-
-
+        //public void printTerminalWeaponTest(WeaponTypes weapon, Slots slot)
+        //{
+        //    if (allowedWeaponTypes.Contains(weapon) && slot == Slots.Weapon)
+        //    {
+        //        EquipItem(Slots slot, Item item);
+        //        Console.WriteLine($"weapon: {weapon}, slot: {slot}");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"Either wrong weapon or slot.\nweapon: {weapon}, slot: {slot}");
+        //    }
+        //}
     }
 }
+
+
+// InvalidArmorException, only allow for these below
+//• Rogues – Leather, Mail
+
+// InvalidWeaponException, only allow for these below
+//• Rogues – Dagger, Sword

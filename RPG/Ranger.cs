@@ -8,15 +8,29 @@ namespace RPG
 {
     class Ranger : Hero
     {
-
         // initial Base Primary Attributes
-        int initialStrength = 1;
-        int initialDexterity = 7;
-        int initialIntelligence = 1;
+        private int initialStrength = 1;
+        private int initialDexterity = 7;
+        private int initialIntelligence = 1;
 
         // Additional Base Primary Attributes points with each level up
-        int levelStrength = 1;
-        int levelDexterity = 5;
-        int levelIntelligence = 1;
+        private int levelStrength = 1;
+        private int levelDexterity = 5;
+        private int levelIntelligence = 1;
+
+        public Ranger(string name, int level) : base(name, level)
+        {
+            BasePrimaryAttributes = new BasePrimaryAttributes(initialStrength, initialDexterity, initialIntelligence,
+                                                              levelStrength, levelDexterity, levelIntelligence, level);
+        }
     }
 }
+
+
+
+
+// InvalidArmorException, only allow for these below
+//• Rangers – Leather, Mail
+
+// InvalidWeaponException, only allow for these below
+//• Rangers – Bow

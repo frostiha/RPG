@@ -10,13 +10,24 @@ namespace RPG
     {
 
         // initial Base Primary Attributes
-        int initialStrength = 5;
-        int initialDexterity = 2;
-        int initialIntelligence = 1;
+        private int initialStrength = 5;
+        private int initialDexterity = 2;
+        private int initialIntelligence = 1;
 
         // Additional Base Primary Attributes points with each level up
-        int levelStrength = 3;
-        int levelDexterity = 2;
-        int levelIntelligence = 1;
+        private int levelStrength = 3;
+        private int levelDexterity = 2;
+        private int levelIntelligence = 1;
+
+        public Warrior(string name, int level) : base(name, level)
+        {
+            BasePrimaryAttributes = new BasePrimaryAttributes(initialStrength, initialDexterity, initialIntelligence,
+                                                              levelStrength, levelDexterity, levelIntelligence, level);
+        }
     }
 }
+
+
+
+// InvalidArmorException, only allow for these below
+//• Warriors – Mail, Plate

@@ -8,6 +8,8 @@ namespace RPG
 {
     abstract class Hero
     {
+        public BasePrimaryAttributes BasePrimaryAttributes { get; set; }
+        public Equipment Equipment { get; set; }
 
         // to do 
         // overload + operator for
@@ -15,14 +17,14 @@ namespace RPG
 
         private string name;
         private int level;
-        private int[] basePrimaryAttributes;
-        private int[] totalPrimaryAttributes;
+        //private int[] basePrimaryAttributes;
+        //private int[] totalPrimaryAttributes;
 
 
         public string Name { get => name; set => name = value; }
         public int Level { get => level; set => level = value; }
 
-        public BasePrimaryAttributes BasePrimaryAttributes { get; set; }
+        //public BasePrimaryAttributes BasePrimaryAttributes { get; set; }
 
         
 
@@ -30,17 +32,21 @@ namespace RPG
         // constructor that takes no arguments:
         public Hero()
         {
-            BasePrimaryAttributes = new BasePrimaryAttributes();
+            //BasePrimaryAttributes = new BasePrimaryAttributes();
         }
 
         // constructor that takes one argument:
-        public Hero(string name)
+        public Hero(string name, int level)
         {
             Name = name;
-            BasePrimaryAttributes = new BasePrimaryAttributes();
+            Level = level;
         }
 
-
+        public void IncreaseLevelBy(int levelIncrement)
+        {
+            Level += levelIncrement;
+            BasePrimaryAttributes.SetAttributesByLevel(Level);
+        }
 
     }
 }
